@@ -1,0 +1,16 @@
+<div class="row">
+<div class="col c1"><div class="pn"><div class="pnt">Temperature</div><div class="pnc"><div class="ce" id="temp"></div></div></div></div>
+<div class="col c1"><div class="pn"><div class="pnt">Humidity</div><div class="pnc"><div class="ce" id="humi"></div></div></div></div>
+<div class="col c1"><div class="pn"><div class="pnt">Dew Point</div><div class="pnc"><div class="ce" id="dew"></div></div></div></div>
+<div class="col c1"><div class="pn"><div class="pnt">Pressure</div><div class="pnc"><div class="ce" id="press"></div></div></div></div>
+</div>
+<script>function ready(js){window[js]=1;if(window.lib_main && window.lib_svg){
+ajaxRefresh("/api/dash","POST","",1000);
+svgBuild("#temp","t",{id:"temp",color:"#fc0",min:-20,max:50});
+svgBuild("#humi","a",{id:"humi",color:"#0cf",min:0,max:100});
+svgBuild("#dew","t",{id:"dew",color:"#c0f",min:-20,max:50});
+svgBuild("#press","t",{id:"press",color:"#ccf",min:850,max:1100});
+jsonUpdate('{"#tempd":{"_":"Temp °C"},"#tempt":{"_":"0"},"#tempn":{"_":"-20 °C"},"#tempx":{"_":"50 °C"}}');
+jsonUpdate('{"#dewd":{"_":"Temp °C"},"#dewt":{"_":"0"},"#dewn":{"_":"-20 °C"},"#dewx":{"_":"50 °C"}}');
+jsonUpdate('{"#humid":{"_":"% RH"},"#pressd":{"_":"hPa"},"#presst":{"_":"0"},"#pressn":{"_":"850 hPa"},"#pressx":{"_":"1100 hPa"}}');
+}}</script><script src="/static/svg.js"></script>
